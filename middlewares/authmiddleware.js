@@ -1,6 +1,6 @@
 const jwt = require("josnwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET || "hiaaa";
-export function authmiddleware(req,res,next){
+function authmiddleware(req,res,next){
     const authHeader = req.headers.authorization;
 
     if(!authHeader || !authHeader.startsWith("Bearer ")){
@@ -17,5 +17,6 @@ export function authmiddleware(req,res,next){
 }
 
 module.exports={
+    authmiddleware,
     JWT_SECRET,
 }
