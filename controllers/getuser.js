@@ -2,7 +2,7 @@
 const User = require("../models/user");
 
 
-export async function getUser(req,res){
+async function getUser(req,res){
     try {
         const user = await User.findById(req.user.id).select("-password");
 
@@ -16,4 +16,7 @@ export async function getUser(req,res){
     } catch (err) {
         res.status(500).json({ error: "Failed to fetch user" });
     }
+}
+module.exports={
+    getUser,
 }

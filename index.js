@@ -1,11 +1,10 @@
-const http = require("https");
 const express = require("express");
 const path = require("path");
-
+const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const app = express();
-const server = http.createServer(app)
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/hospitalSystem")
 .then(()=>{

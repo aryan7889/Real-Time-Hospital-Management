@@ -65,7 +65,7 @@
 <body>
 
 <div id="authSection">
-    <h1>Chat App</h1>
+    <h1>Real Time Hospital Mangement System</h1>
     <div class="tabs">
         <button type="button" id="loginTab" class="active">Login</button>
         <button type="button" id="signupTab">Sign Up</button>
@@ -82,6 +82,7 @@
         <input type="text" id="signupUsername" placeholder="Username" required>
         <input type="email" id="signupEmail" placeholder="Email" required>
         <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required minlength="6">
+        <input type="role" id="signuprole" placeholder="Define Role" required>
         <button type="submit">Sign Up</button>
     </form>
 </div>
@@ -140,7 +141,11 @@ async function apiRequest(url, options = {}) {
     }
     return data;
 }
-
+async function handleAuthResponse(data) {
+    saveSession(data.token, data.user);
+    console.log("user registered.")
+    // enterChat(data.user);
+}
 loginTab.addEventListener("click", showLoginTab);
 signupTab.addEventListener("click", showSignupTab);
 
@@ -173,6 +178,7 @@ signupForm.addEventListener("submit", async (e) => {
                 username: document.getElementById("signupUsername").value,
                 email: document.getElementById("signupEmail").value,
                 password: document.getElementById("signupPassword").value,
+                role:document.getElementById("signuprole").value,
             }),
         });
         await handleAuthResponse(data);

@@ -1,4 +1,4 @@
-const jwt = require("josnwebtoken");
+const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET || "hiaaa";
 function authmiddleware(req,res,next){
     const authHeader = req.headers.authorization;

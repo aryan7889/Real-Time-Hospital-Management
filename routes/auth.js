@@ -3,16 +3,10 @@ const jwt = require("jsonwebtoken");
 const {authmiddleware,JWT_SECRET}=require("../middlewares/authmiddleware");
 const router = express.Router();
 
-import{getUser} from"../controllers/getuser";
-import{loginUser} from"../controllers/login"
-import{siginUser} from"../controllers/signin"
-export function createToken(user){
-    return jwt.sign(
-        { id: user._id, username: user.username },
-        JWT_SECRET,
-        { expiresIn: "7d" }
-    );
-}
+const{getUser} = require("../controllers/getuser");
+const{loginUser} = require("../controllers/login")
+const{siginUser} = require("../controllers/signin")
+
 
 router.post("/register",siginUser);
 router.post("/login",loginUser);

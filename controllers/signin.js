@@ -3,10 +3,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-import {createToken} from "../routes/auth"
+const {createToken} = require("../utils/token");
 
 
-export async function siginUser(req,res){
+async function siginUser(req,res){
     try {
         const { username, email, password ,role} = req.body;
 
@@ -44,4 +44,8 @@ export async function siginUser(req,res){
     } catch (err) {
         res.status(500).json({ error: "Registration failed" });
     }
+}
+
+module.exports={
+    siginUser,
 }

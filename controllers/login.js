@@ -4,10 +4,11 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 
-import {createToken} from "../routes/auth"
+const {createToken} = require("../utils/token");
 
 
-export async function loginUser(req,res){
+
+ async function loginUser(req,res){
    try {
         const { email, password } = req.body;
 
@@ -36,4 +37,8 @@ export async function loginUser(req,res){
     } catch (err) {
         res.status(500).json({ error: "Login failed" });
     }
+}
+
+module.exports={
+    loginUser,
 }
