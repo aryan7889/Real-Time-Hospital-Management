@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reception Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <h2>🏥 Real-Time Medical Triage System</h2>
+
+        </div>
+
+        <div class="user-info">
+
+            <div>
+                <p>Welcome, <span id="username">Loading...</span></p>
+                <small>Role : <span id="role">Loading...</span></small>
+            </div>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="statistics">
+
+            <div class="card">
+                <h3>Patients Today</h3>
+                <p id="patientsToday">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending Assessment</h3>
+                <p id="pendingAssessment">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Waiting Treatment</h3>
+                <p id="waitingTreatment">0</p>
+            </div>
+
+            <div class="card">
+                <h3>In Treatment</h3>
+                <p id="inTreatment">0</p>
+            </div>
+
+        </section>
+
+        <section class="actions">
+
+            <button id="registerPatientBtn">
+
+                + Register Patient
+
+            </button>
+
+        </section>
+
+        <section class="search">
+
+            <input
+                type="text"
+                id="searchPatient"
+                placeholder="Search Patient..."
+            >
+
+        </section>
+
+        <section class="patients">
+
+            <h2>Active Patients</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Status</th>
+                        <th>Arrival</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="patientTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
